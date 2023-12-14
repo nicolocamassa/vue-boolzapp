@@ -1,8 +1,12 @@
 const { createApp } = Vue;
+var DateTime = luxon.DateTime;
 
 createApp({
     data() {
         return {
+            formatHour: '',
+            chatId: 0,
+            messageSent: '',
             clickedPosition: 0,
             viewedName: 'Michele',
             viewedAvatar: './img/avatar_1.jpg',
@@ -174,19 +178,44 @@ createApp({
     },
     methods: {
 
-        changeContactView(index){
+        changeContactView(index) {
+            this.chatId = index;
             this.viewedName = this.contacts[index].name;
             this.viewedAvatar = this.contacts[index].avatar;
 
+            
             const messages = this.contacts[index].messages;
             const indexMessages = messages[messages.length - 1];
             this.lastAccess = indexMessages.date;
             this.clickedPosition = index;
-            console.log(this.lastAccess);
         },
-       
-        sendMessage(){
-            console.log('funziono')
+
+        sendMessage() {
+            const now = DateTime.now().toFormat('HH:mm');
+
+            const messages = this.contacts[this.chatId].messages;
+            
+            let newObj = {
+                message: this.messageSent,
+                status: 'sent',
+                date: now
+            }
+
+            let newObjReceived = {
+                message: 'Ok!',
+                status: 'received',
+                date: now
+            }
+
+            if(this.messageSent != ''){
+                messages.push(newObj);
+            }
+        
+            this.messageSent = ''
+
+            setTimeout(function(){
+                messages.push(newObjReceived);
+            },1000)
         }
     },
 }).mount('#app')

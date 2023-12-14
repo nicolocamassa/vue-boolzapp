@@ -130,7 +130,7 @@
                         </div>
 
                         <!-- Input per l'invio dei messaggi -->
-                        <input type="text" class="form-control" placeholder="Scrivi un messaggio..." @keyup.enter="sendMessage">
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio..." @keyup.enter="sendMessage" v-model="messageSent">
 
                         <!-- Icona per l'invio -->
                         <div class="emoji-button">
@@ -167,6 +167,7 @@
         </div>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js"></script>
 </body>
