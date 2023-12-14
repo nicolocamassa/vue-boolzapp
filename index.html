@@ -72,7 +72,7 @@
                             </div>
 
                             <!-- Informazioni utenti nella sidebar -->
-                            <div class="user-info-sidebar">
+                            <div class="user-info-sidebar" @click="console.log(this.contacts[index])">
                                 <span class="fs-5"><strong>{{ contacts[index].name }}</strong></span>
                                 <span class="last-message">{{ contacts[index].messages[1].message}}</span> <!-- Cambiare -->
                             </div>
