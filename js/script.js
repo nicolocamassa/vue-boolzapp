@@ -3,6 +3,9 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            clickedPosition: 0,
+            viewedName: 'Michele',
+            viewedAvatar: './img/avatar_1.jpg',
             contacts: [
                 {
                     name: 'Michele',
@@ -167,5 +170,13 @@ createApp({
                 }
             ]
         }
-    }
+    },
+    methods: {
+        changeContactView(index){
+            this.viewedName = this.contacts[index].name;
+            this.viewedAvatar = this.contacts[index].avatar;
+            this.clickedPosition = index;
+            console.log(this.clickedPosition);
+        }
+    },
 }).mount('#app')
