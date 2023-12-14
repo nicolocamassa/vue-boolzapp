@@ -155,6 +155,11 @@
     position: relative;
 }
 
+.user-list .user:hover{
+   background-color: rgb(232, 232, 232);
+   cursor: pointer;
+}
+
 .user-info-sidebar{
     display: flex;
     justify-content: center;
@@ -172,28 +177,39 @@
 }
 
 .message-view{
-    height: calc(91% - 70px);
+    height: calc(100% - 80px - 70px);
+    display: flex;
     padding: 100px;
-    overflow: auto;
+    padding-bottom: 0;
+    overflow-y: auto;
+    flex-direction: column-reverse;
+    position: relative;
 }
+
+
 
 .message{
     min-width: 100px;
     max-width: 500px;
     padding: 5px 12px;
+    padding-bottom: 10px;
     border-radius: 10px;
     padding-right: 50px;
+    position: relative;
+    margin-bottom: 3px;
+}
+
+.check-message{
+    color: rgb(122, 122, 122);
 }
 
 .message-sent{
     right: 100px;
     background-color: #D5F9BB;
-    margin-bottom: 20px;
 }
 
 .message-received{
     background-color: white;
-    margin-bottom: 11px;
 }
 
 .message-align{
@@ -212,6 +228,13 @@
     margin-bottom: 20px;
 }
 
+.message-time{
+    font-size: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+}
+
 .container-sent{
     align-items: end;
 }
@@ -219,3 +242,5 @@
 .container-received{
     align-items: start;
 }
+
+

@@ -70,7 +70,7 @@
                             <div class="profile-pic">
                                 <img src="./img/avatar_2.jpg" alt="Foto profilo" class="img-profile">
                             </div>
-                            
+
                             <!-- Informazioni utenti nella sidebar -->
                             <div class="user-info-sidebar">
                                 <span class="fs-5"><strong>Michele</strong></span>
@@ -82,16 +82,13 @@
                                 02:43
                             </div>
                         </div>
-                        
+
                     </div>
 
                 </div>
 
                 <!-- Finestra per la visualizzazione dei messaggi -->
                 <div class="message-section">
-
-                    
-
                     <!-- Header della sezione messaggi -->
                     <div class="header">
                         <!-- Informazioni personali -->
@@ -121,8 +118,8 @@
                         </div>
                     </div>
 
-                    
-                    
+
+
                     <!-- Sezione per l'invio dei messaggi -->
                     <div class="input_section">
 
@@ -130,7 +127,7 @@
                         <div class="emoji-button">
                             <i class="fas fa-face-smile-beam fs-3"></i>
                         </div>
-                        
+
                         <!-- Input per l'invio dei messaggi -->
                         <input type="text" class="form-control" placeholder="Scrivi un messaggio...">
 
@@ -140,37 +137,160 @@
                         </div>
                     </div>
 
+                    <!-- Sezione per la visualizzazione dei messaggi *inverte l'ordine per lo scroll dal basso -->
                     <div class="message-view">
-                        <div class="message-container container-sent">
-                            <div class="message-sent message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo molestias voluptates eaque dicta nulla ipsam tempore veritatis iusto magnam, et atque ullam ducimus, expedita alias explicabo quibusdam omnis asperiores aliquam?</div>
-                            <div class="message-sent message">.</div>
-                        </div>
 
-                        <div class="message-container container-received">
-                            <div class="message-received message">ciao</div>
-                        <div class="message-received message">Come va la vita?</div>
-                        </div>
-                        
-                        
 
-                        <div class="message-container container-sent">
-                            <div class="message-sent message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo molestias voluptates eaque dicta nulla ipsam tempore veritatis iusto magnam, et atque ullam ducimus, expedita alias explicabo quibusdam omnis asperiores aliquam?</div>
-                        </div>
+                        <div class="message-container-main"> <!-- *reinverte l'ordine nella posizione corretta -->
 
-                        <div class="message-container container-received">
-                            <div class="message-received message">L'altra sera ho fatto la spesa nel supermercato vicino casa mia e ho comprato una matita</div>
-                        <div class="message-received message">Come va la vita?</div>
-                        </div>
-                       
+                            <!-- Gruppo di messaggi inviati -->
+                            <div class="message-container container-sent">
 
-                        <div class="message-container container-sent">
-                            <div class="message-sent message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo molestias voluptates eaque dicta nulla ipsam tempore veritatis iusto magnam, et atque ullam ducimus, expedita alias explicabo quibusdam omnis asperiores aliquam?</div>
+                                <!-- Singolo messaggio inviato -->
+                                <div class="message-sent message">
+
+                                    <span>Inizio </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+
+                                </div>
+                            </div>
+
+                            <!-- Gruppo di messaggi ricevuti -->
+                            <div class="message-container container-received">
+
+                                <!-- Singolo messaggio -->
+                                <div class="message-received message">
+                                    <span>Ciao</span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="message-container container-sent">
+                                <div class="message-sent message">
+                                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit iure in
+                                        ipsum rerum amet. Tempore labore suscipit ex, quidem illum cupiditate asperiores
+                                        adipisci mollitia, voluptatem nemo iusto quis. Quae, veritatis. </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="message-container container-received">
+                                <div class="message-received message">
+                                    <span>Ciao </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="message-container container-sent">
+                                <div class="message-sent message">
+                                    <span>Ciao </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+
+                                <div class="message-sent message">
+                                    <span>Ciao </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+
+                                <div class="message-sent message">
+                                    <span>Ciao </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="message-container container-received">
+                                <div class="message-received message">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero sequi ad quis
+                                        ipsam numquam ab quibusdam accusamus</span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+
+                                <div class="message-received message">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi cum nemo ad
+                                        harum consequuntur tenetur hic dolor. Dolor minima, obcaecati recusandae
+                                        blanditiis ab tenetur. Totam reiciendis nostrum voluptatem eum asperiores? Lorem
+                                        ipsum dolor sit amet consectetur adipisicing elit. Architecto molestiae soluta,
+                                        debitis ipsam maiores earum qui consectetur. Asperiores omnis ut cupiditate odio
+                                        labore praesentium incidunt totam eligendi culpa pariatur. Earum! </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+
+                                <div class="message-received message">
+                                    <span>.</span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+
+                                <div class="message-received message">
+                                    <span>fine </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+
+                                <div class="message-received message">
+                                    <span>fine </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+
+                                <div class="message-received message">
+                                    <span>fine </span>
+
+                                    <span class="message-time">
+                                        23:12
+                                        <i class="fas fa-check check-message"></i>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        
                     </div>
-                    
-                    
-                    
                 </div>
             </div>
         </div>
