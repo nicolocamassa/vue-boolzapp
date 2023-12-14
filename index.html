@@ -15,12 +15,12 @@
 
 <body>
     <!-- Main -->
-    <main>
+    <main id="app">
         <!-- Sfondo -->
         <div class="background">
 
             <!-- Contenitore per l'interfaccia utente -->
-            <div class="window_container">
+            <div class="window_container" >
                 <div class="sidebar">
 
                     <!-- Header della sidebar -->
@@ -65,16 +65,16 @@
 
                     <!-- Lista degli utenti -->
                     <div class="user-list">
-                        <div class="user">
+                        <div class="user" v-for="(profile, index) in contacts">
                             <!-- Foto profilo utente sidebar -->
                             <div class="profile-pic">
-                                <img src="./img/avatar_2.jpg" alt="Foto profilo" class="img-profile">
+                                <img :src="contacts[index].avatar" alt="Foto profilo" class="img-profile">
                             </div>
 
                             <!-- Informazioni utenti nella sidebar -->
                             <div class="user-info-sidebar">
-                                <span class="fs-5"><strong>Michele</strong></span>
-                                <span class="last-message">Ciao...</span>
+                                <span class="fs-5"><strong>{{ contacts[index].name }}</strong></span>
+                                <span class="last-message">{{ contacts[index].messages[1].message}}</span> <!-- Cambiare -->
                             </div>
 
                             <!-- Orario dell'ultimo messaggio inviato -->
@@ -295,6 +295,8 @@
             </div>
         </div>
     </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
