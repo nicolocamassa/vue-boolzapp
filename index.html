@@ -106,7 +106,7 @@
                                 <span class="name fs-5"><strong>{{ this.viewedName }}</strong></span>
 
                                 <!-- Ultimo accesso -->
-                                <span>Ultimo accesso</span>
+                                <span>Ultimo accesso il {{ lastAccess }}</span>
                             </div>
 
                         </div>
@@ -130,7 +130,7 @@
                         </div>
 
                         <!-- Input per l'invio dei messaggi -->
-                        <input type="text" class="form-control" placeholder="Scrivi un messaggio...">
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio..." @keyup.enter="sendMessage">
 
                         <!-- Icona per l'invio -->
                         <div class="emoji-button">
@@ -153,7 +153,7 @@
                                     <span>{{ message.message }}</span>
 
                                     <span class="message-time">
-                                        23:12
+                                        {{ message.date }}
                                         <i class="fas fa-check check-message"></i>
                                     </span>
 

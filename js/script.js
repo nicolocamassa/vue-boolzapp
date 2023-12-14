@@ -6,6 +6,7 @@ createApp({
             clickedPosition: 0,
             viewedName: 'Michele',
             viewedAvatar: './img/avatar_1.jpg',
+            lastAccess: '10/01/2020 16:15:22',
             contacts: [
                 {
                     name: 'Michele',
@@ -172,11 +173,20 @@ createApp({
         }
     },
     methods: {
+
         changeContactView(index){
             this.viewedName = this.contacts[index].name;
             this.viewedAvatar = this.contacts[index].avatar;
+
+            const messages = this.contacts[index].messages;
+            const indexMessages = messages[messages.length - 1];
+            this.lastAccess = indexMessages.date;
             this.clickedPosition = index;
-            console.log(this.clickedPosition);
+            console.log(this.lastAccess);
+        },
+       
+        sendMessage(){
+            console.log('funziono')
         }
     },
 }).mount('#app')
