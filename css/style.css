@@ -147,3 +147,75 @@
     display: flex;
     flex-direction: column;
 }
+
+.user-list .user{
+    padding: 10px;
+    border-bottom: 1px solid rgb(237, 237, 237);
+    display: flex;
+    position: relative;
+}
+
+.user-info-sidebar{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.last-message{
+    color: gray;
+}
+
+.last-message-time{
+    position: absolute;
+    right: 10px;
+    color: gray;
+}
+
+.message-view{
+    height: calc(91% - 70px);
+    padding: 100px;
+    overflow: auto;
+}
+
+.message{
+    min-width: 100px;
+    max-width: 500px;
+    padding: 5px 12px;
+    border-radius: 10px;
+    padding-right: 50px;
+}
+
+.message-sent{
+    right: 100px;
+    background-color: #D5F9BB;
+    margin-bottom: 20px;
+}
+
+.message-received{
+    background-color: white;
+    margin-bottom: 11px;
+}
+
+.message-align{
+    position: absolute;
+    right: 0;
+    background-color: red;
+    width: 100%;
+}
+
+.message-container{
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.container-sent{
+    align-items: end;
+}
+
+.container-received{
+    align-items: start;
+}
