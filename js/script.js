@@ -4,6 +4,7 @@ var DateTime = luxon.DateTime;
 createApp({
     data() {
         return {
+            searchUser:'',
             formatHour: '',
             chatId: 0,
             messageSent: '',
@@ -216,6 +217,16 @@ createApp({
             setTimeout(function(){
                 messages.push(newObjReceived);
             },1000)
+        },
+
+        searchBar(){
+            this.contacts.forEach((element) => {
+                if(element.name.toLowerCase().includes(this.searchUser.toLowerCase())){
+                    element.visible = true;
+                }else{
+                    element.visible = false;
+                }
+            });
         }
     },
 }).mount('#app')

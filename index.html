@@ -60,12 +60,12 @@
                     <!-- Sezione ricerca messaggi o contatti -->
                     <div class="searchbar">
                         <i class="fa-solid fa-magnifying-glass fs-5 me-2"></i>
-                        <input type="text" class="form-control" placeholder="Cerca">
+                        <input type="text" class="form-control" placeholder="Cerca" v-model="searchUser" @keyup="searchBar()">
                     </div>
 
                     <!-- Lista degli utenti -->
                     <div class="user-list">
-                        <div class="user" v-for="(profile, index) in contacts" @click="changeContactView(index)">
+                        <div class="user" v-show="contacts[index].visible" v-for="(profile, index) in contacts" @click="changeContactView(index)" >
                             <!-- Foto profilo utente sidebar -->
                             <div class="profile-pic">
                                 <img :src="contacts[index].avatar" alt="Foto profilo" class="img-profile">
