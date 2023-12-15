@@ -247,4 +247,41 @@
     align-items: start;
 }
 
+.arrow-menu{
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    color: gray;
+    opacity: 0;
+}
 
+.message:hover .arrow-menu{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.message-options-window{
+    position: absolute;
+    right: 0px;
+    top: 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    z-index: 999;
+    padding-top: 10px;
+    width: 150px;
+}
+
+.message-options-window ul{
+    list-style: none;
+    line-height: 2;
+    text-align: center;
+}
+
+li:hover{
+    background-color: rgb(213, 213, 213);
+    cursor: pointer;
+}
+
+.message-options-window ul li:nth-child(1){
+    border-bottom: 1px solid rgb(200, 200, 200);
+}

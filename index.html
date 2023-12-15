@@ -74,8 +74,8 @@
                             <!-- Informazioni utenti nella sidebar -->
                             <div class="user-info-sidebar">
                                 <span class="fs-5"><strong>{{ contacts[index].name }}</strong></span>
-                                <span class="last-message">{{ contacts[index].messages[contacts[index].messages.length - 1].message }}</span>
-                                <!-- Cambiare -->
+                                <span class="last-message" v-if="contacts[index].messages[contacts[index].messages.length - 1].status == 'sent' ">Tu: {{ contacts[index].messages[contacts[index].messages.length - 1].message }}</span>
+                                <span class="last-message" v-else>{{ contacts[index].messages[contacts[index].messages.length - 1].message }}</span>
                             </div>
 
                             <!-- Orario dell'ultimo messaggio inviato -->
@@ -157,6 +157,13 @@
                                         <i class="fas fa-check check-message"></i>
                                     </span>
 
+                                    <i class="fa-solid fa-chevron-down arrow-menu"></i>
+                                    <div class="message-options-window">
+                                        <ul class="p-0">
+                                            <li>Info messaggio</li>
+                                            <li>Elimina messaggio</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
