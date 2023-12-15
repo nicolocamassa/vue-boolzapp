@@ -247,16 +247,16 @@ createApp({
             });
         },
         showMessageOptions(index){
-            
-
-            if(!this.messageOptions.active){
-                this.messageOptions.active = true;
-            }else{
-                this.messageOptions.active = false;
-            }
-
+            /* Se active è false diventa true e viceversa */
+            this.messageOptions.active = !this.messageOptions.active
             this.messageOptions.index = index;
-            
+        },
+        deleteMessage(user){
+            /* this.message.splice(message, 1); */
+            console.log( this.contacts[user].messages.splice(this.messageOptions.index, 1))
+
+           this.contacts[user].messages.splice(this.messageOptions.index, 0);
+           this.messageOptions.active = false;
         }
     },
 }).mount('#app')

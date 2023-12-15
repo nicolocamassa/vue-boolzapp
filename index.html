@@ -106,7 +106,7 @@
                                 <span class="name fs-5"><strong>{{ contacts[this.clickedPosition].name}}</strong></span>
 
                                 <!-- Ultimo accesso -->
-                                <span>Ultimo accesso il {{ contacts[this.clickedPosition].messages[contacts[this.clickedPosition].messages.length - 1].date }}</span>
+                                <span v-if="contacts[this.clickedPosition].messages.length > 0">Ultimo accesso il {{ contacts[this.clickedPosition].messages[contacts[this.clickedPosition].messages.length - 1].date }}</span>
                             </div>
 
                         </div>
@@ -161,7 +161,7 @@
                                     <div class="message-options-window" v-show="messageOptions.active && messageOptions.index === index">
                                         <ul class="p-0">
                                             <li>Info messaggio</li>
-                                            <li>Elimina messaggio</li>
+                                            <li @click="deleteMessage(this.clickedPosition)">Elimina messaggio</li>
                                         </ul>
                                     </div>
                                 </div>
