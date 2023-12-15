@@ -4,14 +4,16 @@ var DateTime = luxon.DateTime;
 createApp({
     data() {
         return {
+            /* Inserimento nella ricerca */
             searchUser:'',
-            formatHour: '',
-            messageSent: '',
-            clickedPosition: 0,
-            viewedName: 'Michele',
-            viewedAvatar: './img/avatar_1.jpg',
-            lastAccess: '10/01/2020 16:15:22',
 
+            /* Inserimento del messaggio da mandare */
+            messageSent: '',
+
+            /* Posizione index dell'utente cliccato */
+            clickedPosition: 0,
+
+            /* Lista dei contatti */
             contacts: [
                 {
                     name: 'Michele',
@@ -179,47 +181,59 @@ createApp({
     },
     methods: {
 
+        /* Cambiamento della vista per il contatte cliccato */
         changeContactView(index) {
+            /* Cambio del nome */
             this.viewedName = this.contacts[index].name;
+
+            /* Cambio della foto profilo */
             this.viewedAvatar = this.contacts[index].avatar;
 
-            
+            /* Ultimo accesso collegato all'ultimo messaggio mandato */
             const messages = this.contacts[index].messages;
             const indexMessages = messages[messages.length - 1];
             this.lastAccess = indexMessages.date;
+
+            /* La posizione viene presa dall'indice */
             this.clickedPosition = index;
         },
 
         sendMessage() {
+            /* Vengono prese ore e minuti dall'orario attuale */
             const now = DateTime.now().toFormat('HH:mm');
-
             const messages = this.contacts[this.clickedPosition].messages;
             
+            /* Creazione di un nuovo oggetto per i messaggi inviati */
             let newObj = {
                 message: this.messageSent,
                 status: 'sent',
                 date: now
             }
 
+            /* Creazione di un nuovo oggetto per i messaggi ricevuti */
             let newObjReceived = {
                 message: 'Ok!',
                 status: 'received',
                 date: now
             }
 
+            /* Se il messaggio non è vuoto invia */
             if(this.messageSent != ''){
                 messages.push(newObj);
             }
         
             this.messageSent = ''
 
+            /* Risposta automatica dopo un secondo */
             setTimeout(function(){
                 messages.push(newObjReceived);
             },1000)
         },
 
+        /* Barra di ricerca */
         searchBar(){
             this.contacts.forEach((element) => {
+                /* Se negli array dei nomi è presente l'inserimento nella barra di ricerca */
                 if(element.name.toLowerCase().includes(this.searchUser.toLowerCase())){
                     element.visible = true;
                 }else{

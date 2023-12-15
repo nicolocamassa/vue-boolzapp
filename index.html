@@ -97,16 +97,16 @@
 
                             <!-- Foto profilo [Personale] -->
                             <div class="profile-pic">
-                                <img :src="this.viewedAvatar" alt="Foto profilo" class="img-profile">
+                                <img :src="contacts[this.clickedPosition].avatar" alt="Foto profilo" class="img-profile">
                             </div>
 
                             <!-- Informazioni utente -->
                             <div class="user-info">
                                 <!-- Nome [Personale] -->
-                                <span class="name fs-5"><strong>{{ this.viewedName }}</strong></span>
+                                <span class="name fs-5"><strong>{{ contacts[this.clickedPosition].name}}</strong></span>
 
                                 <!-- Ultimo accesso -->
-                                <span>Ultimo accesso il {{ lastAccess }}</span>
+                                <span>Ultimo accesso il {{ contacts[this.clickedPosition].messages[contacts[this.clickedPosition].messages.length - 1].date }}</span>
                             </div>
 
                         </div>
