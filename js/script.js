@@ -6,12 +6,12 @@ createApp({
         return {
             searchUser:'',
             formatHour: '',
-            chatId: 0,
             messageSent: '',
             clickedPosition: 0,
             viewedName: 'Michele',
             viewedAvatar: './img/avatar_1.jpg',
             lastAccess: '10/01/2020 16:15:22',
+
             contacts: [
                 {
                     name: 'Michele',
@@ -180,7 +180,6 @@ createApp({
     methods: {
 
         changeContactView(index) {
-            this.chatId = index;
             this.viewedName = this.contacts[index].name;
             this.viewedAvatar = this.contacts[index].avatar;
 
@@ -194,7 +193,7 @@ createApp({
         sendMessage() {
             const now = DateTime.now().toFormat('HH:mm');
 
-            const messages = this.contacts[this.chatId].messages;
+            const messages = this.contacts[this.clickedPosition].messages;
             
             let newObj = {
                 message: this.messageSent,
@@ -230,3 +229,5 @@ createApp({
         }
     },
 }).mount('#app')
+
+/* Scrivere nella sidebar l'ultimo messaggio */

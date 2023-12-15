@@ -201,6 +201,7 @@
     border-radius: 10px;
     padding-right: 50px;
     position: relative;
+    word-wrap: break-word;
 }
 
 .check-message{
