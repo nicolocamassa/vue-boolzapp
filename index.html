@@ -142,7 +142,7 @@
                     <div class="message-view">
 
                         <!-- Ciclo per visualizzare le caratteristiche dei messaggi in base al contatto cliccato -->
-                        <div class="message-container-main" v-for="message in contacts[this.clickedPosition].messages">
+                        <div class="message-container-main" v-for="(message, index) in contacts[this.clickedPosition].messages">
 
                             <!-- Gruppo di messaggi inviati e ricevuto -->
                             <div class="message-container container-sent" :class="{'container-sent': message.status === 'sent', 'container-received': message.status !== 'sent'}">
@@ -157,8 +157,8 @@
                                         <i class="fas fa-check check-message"></i>
                                     </span>
 
-                                    <i class="fa-solid fa-chevron-down arrow-menu"></i>
-                                    <div class="message-options-window">
+                                    <i class="fa-solid fa-chevron-down arrow-menu" @click="showMessageOptions(index)"></i>
+                                    <div class="message-options-window" v-show="messageOptions.active && messageOptions.index === index">
                                         <ul class="p-0">
                                             <li>Info messaggio</li>
                                             <li>Elimina messaggio</li>

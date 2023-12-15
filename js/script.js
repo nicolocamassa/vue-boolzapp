@@ -13,6 +13,11 @@ createApp({
             /* Posizione index dell'utente cliccato */
             clickedPosition: 0,
 
+            messageOptions: {
+                active: false,
+                index: 0
+            },
+
             /* Lista dei contatti */
             contacts: [
                 {
@@ -240,6 +245,18 @@ createApp({
                     element.visible = false;
                 }
             });
+        },
+        showMessageOptions(index){
+            
+
+            if(!this.messageOptions.active){
+                this.messageOptions.active = true;
+            }else{
+                this.messageOptions.active = false;
+            }
+
+            this.messageOptions.index = index;
+            
         }
     },
 }).mount('#app')
