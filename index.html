@@ -60,12 +60,14 @@
                     <!-- Sezione ricerca messaggi o contatti -->
                     <div class="searchbar">
                         <i class="fa-solid fa-magnifying-glass fs-5 me-2"></i>
-                        <input type="text" class="form-control" placeholder="Cerca" v-model="searchUser" @keyup="searchBar()">
+                        <input type="text" class="form-control" placeholder="Cerca" v-model="searchUser"
+                            @keyup="searchBar()">
                     </div>
 
                     <!-- Lista degli utenti -->
                     <div class="user-list">
-                        <div class="user" v-show="contacts[index].visible" v-for="(profile, index) in contacts" @click="changeContactView(index)" >
+                        <div class="user" v-show="contacts[index].visible" v-for="(profile, index) in contacts"
+                            @click="changeContactView(index)">
                             <!-- Foto profilo utente sidebar -->
                             <div class="profile-pic">
                                 <img :src="contacts[index].avatar" alt="Foto profilo" class="img-profile">
@@ -74,12 +76,17 @@
                             <!-- Informazioni utenti nella sidebar -->
                             <div class="user-info-sidebar">
                                 <span class="fs-5"><strong>{{ contacts[index].name }}</strong></span>
-                                <span class="last-message" v-if="contacts[index].messages[contacts[index].messages.length - 1].status == 'sent' ">Tu: {{ contacts[index].messages[contacts[index].messages.length - 1].message }}</span>
-                                <span class="last-message" v-else>{{ contacts[index].messages[contacts[index].messages.length - 1].message }}</span>
+
+                                <span class="last-message"
+                                    v-if="contacts[index].messages.length > 0 && contacts[index].messages[contacts[index].messages.length - 1].status == 'sent' ">Tu:
+                                    {{ contacts[index].messages[contacts[index].messages.length - 1].message }}</span>
+                                <span class="last-message" v-else-if="contacts[index].messages.length > 0">{{
+                                    contacts[index].messages[contacts[index].messages.length - 1].message }}</span>
+                                <span class="last-message" v-else></span>
                             </div>
 
                             <!-- Orario dell'ultimo messaggio inviato -->
-                            <div class="last-message-time">
+                            <div class="last-message-time" v-if="contacts[this.clickedPosition].messages.length > 0">
                                 {{ contacts[index].messages[contacts[index].messages.length - 1].date }}
                             </div>
                         </div>
@@ -97,7 +104,8 @@
 
                             <!-- Foto profilo [Personale] -->
                             <div class="profile-pic">
-                                <img :src="contacts[this.clickedPosition].avatar" alt="Foto profilo" class="img-profile">
+                                <img :src="contacts[this.clickedPosition].avatar" alt="Foto profilo"
+                                    class="img-profile">
                             </div>
 
                             <!-- Informazioni utente -->
@@ -106,7 +114,11 @@
                                 <span class="name fs-5"><strong>{{ contacts[this.clickedPosition].name}}</strong></span>
 
                                 <!-- Ultimo accesso -->
-                                <span v-if="contacts[this.clickedPosition].messages.length > 0">Ultimo accesso il {{ contacts[this.clickedPosition].messages[contacts[this.clickedPosition].messages.length - 1].date }}</span>
+                                <span v-if="contacts[this.clickedPosition].messages.length > 0">Ultimo accesso il {{
+                                    contacts[this.clickedPosition].messages[contacts[this.clickedPosition].messages.length
+                                    - 1].date }}</span>
+                                <span v-else></span>
+
                             </div>
 
                         </div>
@@ -130,7 +142,8 @@
                         </div>
 
                         <!-- Input per l'invio dei messaggi -->
-                        <input type="text" class="form-control" placeholder="Scrivi un messaggio..." @keyup.enter="sendMessage" v-model="messageSent">
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio..."
+                            @keyup.enter="sendMessage" v-model="messageSent">
 
                         <!-- Icona per l'invio -->
                         <div class="emoji-button">
@@ -142,13 +155,16 @@
                     <div class="message-view">
 
                         <!-- Ciclo per visualizzare le caratteristiche dei messaggi in base al contatto cliccato -->
-                        <div class="message-container-main" v-for="(message, index) in contacts[this.clickedPosition].messages">
+                        <div class="message-container-main"
+                            v-for="(message, index) in contacts[this.clickedPosition].messages">
 
                             <!-- Gruppo di messaggi inviati e ricevuto -->
-                            <div class="message-container container-sent" :class="{'container-sent': message.status === 'sent', 'container-received': message.status !== 'sent'}">
-                                
+                            <div class="message-container container-sent"
+                                :class="{'container-sent': message.status === 'sent', 'container-received': message.status !== 'sent'}">
+
                                 <!-- Singolo messaggio inviato o ricevuto-->
-                                <div :class="{'message-sent': message.status === 'sent', 'message-received': message.status !== 'sent'}" class="message">
+                                <div :class="{'message-sent': message.status === 'sent', 'message-received': message.status !== 'sent'}"
+                                    class="message">
 
                                     <span>{{ message.message }}</span>
 
@@ -157,8 +173,10 @@
                                         <i class="fas fa-check check-message"></i>
                                     </span>
 
-                                    <i class="fa-solid fa-chevron-down arrow-menu" @click="showMessageOptions(index)"></i>
-                                    <div class="message-options-window" v-show="messageOptions.active && messageOptions.index === index">
+                                    <i class="fa-solid fa-chevron-down arrow-menu"
+                                        @click="showMessageOptions(index)"></i>
+                                    <div class="message-options-window"
+                                        v-show="messageOptions.active && messageOptions.index === index">
                                         <ul class="p-0">
                                             <li>Info messaggio</li>
                                             <li @click="deleteMessage(this.clickedPosition)">Elimina messaggio</li>
@@ -174,7 +192,9 @@
         </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"
+        integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js"></script>
 </body>

@@ -253,10 +253,8 @@ createApp({
         },
         deleteMessage(user){
             /* this.message.splice(message, 1); */
-            console.log( this.contacts[user].messages.splice(this.messageOptions.index, 1))
-
-           this.contacts[user].messages.splice(this.messageOptions.index, 0);
-           this.messageOptions.active = false;
+            this.contacts[user].messages.splice(this.messageOptions.index, 1);
+            this.messageOptions.active = false;
         }
     },
 }).mount('#app')
