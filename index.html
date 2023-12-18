@@ -85,10 +85,12 @@
                                 <span class="last-message" v-else></span>
                             </div>
 
-                            <!-- Orario dell'ultimo messaggio inviato -->
-                            <div class="last-message-time" v-if="contacts[this.clickedPosition].messages.length > 0">
+                            <!-- Tempo ultimo messaggio -->
+                            <div class="last-message-time" v-if="contacts[index].messages.length > 0">
                                 {{ contacts[index].messages[contacts[index].messages.length - 1].date }}
                             </div>
+                            
+                          
                         </div>
 
                     </div>

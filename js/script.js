@@ -5,7 +5,7 @@ createApp({
     data() {
         return {
             /* Inserimento nella ricerca */
-            searchUser:'',
+            searchUser: '',
 
             /* Inserimento del messaggio da mandare */
             messageSent: '',
@@ -196,8 +196,11 @@ createApp({
 
             /* Ultimo accesso collegato all'ultimo messaggio mandato */
             const messages = this.contacts[index].messages;
-            const indexMessages = messages[messages.length - 1];
-            this.lastAccess = indexMessages.date;
+
+            if (messages[messages.length - 1] >= 0) {
+                const indexMessages = messages[messages.length - 1];
+                this.lastAccess = indexMessages.date;
+            }
 
             /* La posizione viene presa dall'indice */
             this.clickedPosition = index;
@@ -207,7 +210,7 @@ createApp({
             /* Vengono prese ore e minuti dall'orario attuale */
             const now = DateTime.now().toFormat('HH:mm');
             const messages = this.contacts[this.clickedPosition].messages;
-            
+
             /* Creazione di un nuovo oggetto per i messaggi inviati */
             let newObj = {
                 message: this.messageSent,
@@ -223,35 +226,35 @@ createApp({
             }
 
             /* Se il messaggio non è vuoto invia */
-            if(this.messageSent != ''){
+            if (this.messageSent != '') {
                 messages.push(newObj);
             }
-        
+
             this.messageSent = ''
 
             /* Risposta automatica dopo un secondo */
-            setTimeout(function(){
+            setTimeout(function () {
                 messages.push(newObjReceived);
-            },1000)
+            }, 1000)
         },
 
         /* Barra di ricerca */
-        searchBar(){
+        searchBar() {
             this.contacts.forEach((element) => {
                 /* Se negli array dei nomi è presente l'inserimento nella barra di ricerca */
-                if(element.name.toLowerCase().includes(this.searchUser.toLowerCase())){
+                if (element.name.toLowerCase().includes(this.searchUser.toLowerCase())) {
                     element.visible = true;
-                }else{
+                } else {
                     element.visible = false;
                 }
             });
         },
-        showMessageOptions(index){
+        showMessageOptions(index) {
             /* Se active è false diventa true e viceversa */
             this.messageOptions.active = !this.messageOptions.active
             this.messageOptions.index = index;
         },
-        deleteMessage(user){
+        deleteMessage(user) {
             /* this.message.splice(message, 1); */
             this.contacts[user].messages.splice(this.messageOptions.index, 1);
             this.messageOptions.active = false;
@@ -259,4 +262,3 @@ createApp({
     },
 }).mount('#app')
 
-/* Scrivere nella sidebar l'ultimo messaggio */
